@@ -1,0 +1,18 @@
+# Site settings
+title: AranHase's Archive
+email: hasegawa.aran@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Allan Yoshio Hasegawa blog. A place to talk about my fields of interests: C++, Haskell, Computer Graphics,
+  Raytracing, Pathtracing, Machine Learning, Artificial Intelligence,
+  Gamedev, Unreal Engine 4, Simulations, and others random things.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://aranhase.github.io" # the base hostname & protocol for your site
+twitter_username: aranhase
+github_username:  aranhase
+
+author:
+  name: Allan Yoshio Hasegawa
+  place: Earth
+
+# Build settings
+markdown: kramdown

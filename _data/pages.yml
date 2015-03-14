@@ -1,0 +1,6 @@
+- url: /portofolio
+  title: Portofolio
+  group: navigation
+- url: /about
+  title: About
+  group: navigation
