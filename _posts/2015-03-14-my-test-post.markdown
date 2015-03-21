@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "My Test Post"
+tags: tag1 tag2
 ---
 
 Hello world! (this should be an excerpt)

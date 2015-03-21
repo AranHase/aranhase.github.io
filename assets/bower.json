@@ -1,0 +1,21 @@
+{
+  "name": "assets",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AranHase/aranhase.github.io",
+  "authors": [
+    "Allan Hasegawa <hasegawa.aran@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.5",
+    "paper-elements": "Polymer/paper-elements#~0.5.5"
+  }
+}

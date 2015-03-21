@@ -3,9 +3,23 @@
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description }}">
 
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <script src="/assets/bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="/assets/elements/main-element.html">
+    <link rel="import" href="/assets/elements/post-excerpt.html">
+    <link rel="import" href="/assets/elements/post-content.html">
+    <link rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css">
+    <style>
+      *{font-family:Fira Mono;}
+      body {
+        display: block;
+        margin: 0px;
+      }
+    </style>
+
 </head>

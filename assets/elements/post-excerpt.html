@@ -1,0 +1,59 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="post-excerpt" attributes="posttitle link date tags">
+
+  <template>
+    <style>
+      :host {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      #core_card {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 800px;
+        border: 2px solid rgb(247, 247, 247);
+        padding: 2px;
+        -webkit-box-shadow: rgb(222, 222, 227) 0px 0px 50px 3px;
+        box-shadow: rgb(222, 222, 227) 0px 0px 50px 3px;
+        background-color: rgb(255, 255, 255);
+      }
+      .post_link {
+        margin: 10px;
+        color: rgb(102, 153, 255);
+        text-decoration: none;
+      }
+      .post_meta {
+        color: rgb(126, 126, 127);
+        margin: -15px 0px 0px 15px;
+      }
+      .post_excerpt {
+        margin: 10px;
+      }
+    </style>
+    <core-card id="core_card" layout vertical>
+    <h2 id="h2">
+      <a id="a" href="{{link}}" class="post_link">{{posttitle}}</a>
+    </h2>
+    <div class="post_meta">{{date}} • Tags: {{tags}}</div>
+    <div id="div" class="post_excerpt"><content></content></div>
+    </core-card>
+  </template>
+
+  <script>
+
+    Polymer({
+      link: '404.html',
+      posttitle: 'Default Title',
+      date: '10/10/2010',
+      tags: 'none',
+      excerpt: 'Default text.'
+
+    });
+
+  </script>
+
+</polymer-element>

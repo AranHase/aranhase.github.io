@@ -1,0 +1,57 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="post-content" attributes="posttitle date tags author">
+
+  <template>
+    <style>
+      :host {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      #core_card {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 800px;
+        border: 2px solid rgb(247, 247, 247);
+        padding: 2px;
+        -webkit-box-shadow: rgb(222, 222, 227) 0px 0px 50px 3px;
+        box-shadow: rgb(222, 222, 227) 0px 0px 50px 3px;
+        background-color: rgb(255, 255, 255);
+      }
+      #post_title {
+        margin: 10px;
+        color: rgb(102, 153, 255);
+        text-decoration: none;
+      }
+      #post_meta {
+        color: rgb(126, 126, 127);
+        margin: -15px 0px 0px 15px;
+      }
+      #post_content {
+        margin: 10px;
+        margin-top: 30px;
+      }
+    </style>
+    <core-card id="core_card" layout vertical>
+    <h2 id="post_title">{{posttitle}}</h2>
+    <div id="post_meta">{{date}} • Author: {{author}} • Tags: {{tags}}</div>
+    <div id="post_content"><content></content></div>
+    </core-card>
+  </template>
+
+  <script>
+
+    Polymer({
+      link: '404.html',
+      posttitle: 'Default Title',
+      date: '10/10/2010',
+      tags: 'none',
+      author: 'Author Name'
+    });
+
+  </script>
+
+</polymer-element>
