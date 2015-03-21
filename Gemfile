@@ -1,2 +1,5 @@
 source 'https://rubygems.org'
-gem 'github-pages'
+gem 'github-pages', '33'
+gem 'guard'
+gem 'guard-livereload'
+#gem 'guard-jekyll-plus'
