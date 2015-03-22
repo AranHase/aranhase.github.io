@@ -135,7 +135,7 @@
 </section>
 </core-menu>
 </core-header-panel>
-<div id="div" tool>AranHase's Archive</div><div id="subtitle" tool>• {{subtitle}}</div>
+<div id="div" tool>AranHase's Archive</div><div id="subtitle" tool hidden>• {{subtitle}}</div>
 <section id="main_section">
   <content></content>
 </section>
@@ -146,6 +146,7 @@
 
 Polymer({
   subtitle: "",
+  ready: function() { if (this.subtitle) { this.$.subtitle.hidden = false; } }
 });
 
 </script>

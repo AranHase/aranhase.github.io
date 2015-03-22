@@ -22,26 +22,28 @@
         box-shadow: rgb(222, 222, 227) 0px 0px 50px 3px;
         background-color: rgb(255, 255, 255);
       }
-      .post_link {
-        margin: 10px;
+      #post_header {
+        margin: 15px;
+      }
+      #post_link {
         color: rgb(102, 153, 255);
         text-decoration: none;
       }
-      .post_meta {
+      #post_meta {
         color: rgb(126, 126, 127);
         margin: -15px 0px 0px 15px;
       }
-      .post_excerpt {
+      #post_excerpt {
         margin: 20px;
         text-align: justify;
       }
     </style>
     <core-card id="core_card" layout vertical>
-    <h2 id="h2">
-      <a id="a" href="{{link}}" class="post_link">{{posttitle}}</a>
+    <h2  id="post_header">
+      <a href="{{link}}" id="post_link">{{posttitle}}</a>
     </h2>
-    <div class="post_meta">{{date}} • Tags: {{tags}}</div>
-    <div id="div" class="post_excerpt"><content></content></div>
+    <div id="post_meta">{{date}} • Tags: {{tags}}</div>
+    <div id="post_excerpt"><content></content></div>
     </core-card>
   </template>
 
