@@ -290,7 +290,10 @@ Let's throw a ray into our grid and see what happens:
                 break
 {% endhighlight %}
 
-The usage should be straightforward. The code above results in (<3 python matplotlib): ![amanatides][4]
+The usage should be straightforward. The code above results in (<3 python matplotlib):
+
+![amanatides][4]
+
 
 Additional notes
 ================

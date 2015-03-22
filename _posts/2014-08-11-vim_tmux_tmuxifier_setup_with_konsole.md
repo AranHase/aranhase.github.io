@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "'vim + tmux + tmuxifier' setup with Konsole"
+title: '"vim + tmux + tmuxifier" setup with Konsole'
 tags: vim
 ---
 

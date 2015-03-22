@@ -84,7 +84,7 @@ int main(void) {
 Quick-Union
 ===========
 
-# Main Ideas:
+## Main Ideas:
 
  * Avoid doing work until have to
  * Creates a forest
@@ -94,7 +94,7 @@ Quick-Union
  * **Trees can get too tall!**
  * **Find is expensive**
 
-# Code:
+## Code:
 
 {% highlight cpp %}
 #include <iostream>
@@ -163,13 +163,13 @@ int main(void) {
 Weighted Quick-Union
 ====================
 
-# Main Ideas:
+## Main Ideas:
  * **Same idea from Quick-Union, BUT, trees will not get too tall!**
  * When creating an union, plug the smaller tree into the bigger tree
  * Find is proportional to the height of the element =P
  * Depth of any node is at most lg N
 
-#Code:
+##Code:
 
 {% highlight cpp %}
 #include <iostream>
