@@ -85,7 +85,31 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   margin-top: 60px;
-  text-decoration: underline;
+}
+
+h1::before {
+  margin-top: 60px;
+  color: #6698FF;
+  font-weight: 900;
+  position: relative;
+  left: -10px;
+  content: '~';
+}
+
+h2::before {
+  margin-top: 60px;
+  color: #6698FF;
+  font-weight: 900;
+  position: relative;
+  left: -8px;
+  content: '≈';
+}
+
+h3::before {
+  margin-top: 60px;
+  color: #6698FF;
+  font-weight: 900;
+  content: '≋';
 }
 
 /**
