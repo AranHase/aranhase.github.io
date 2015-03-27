@@ -16,15 +16,19 @@ The main issue I got with this setup is vim showing wrong colors. To fix this
 problem I had to setup a few files. For the tmuxifier I had to setup
 `~/.bashrc` as:
 
-    export PATH="${tmuxifier_dir}/bin:$PATH"
-    export TMUXIFIER_TMUX_OPTS="-2"
-    eval "$(tmuxifier init -)"
+{% highlight bash %}
+export PATH="${tmuxifier_dir}/bin:$PATH"
+export TMUXIFIER_TMUX_OPTS="-2"
+eval "$(tmuxifier init -)"
+{% endhighlight %}
 
 
 The `TMUXIFIER_TMUX_OPTS` var is important to force tmux to work with 256
 colors. I also had to create a `~/.tmux.conf` file:
 
-    set -g default-terminal "screen-256color"
+{% highlight bash %}
+set -g default-terminal "screen-256color"
+{% endhighlight %}
 
 
 And that should fix the color issue.
@@ -38,93 +42,103 @@ application as a user. The layout is created using tmuxifier. So, my
 `cppdev.window.sh` file (located at `${tmuxifier_dir}/layouts`) is:
 
 
-    # Set window root path. Default is `$session_root`.
-    # Must be called before `new_window`.
-    window_root "~/projects"
+{% highlight bash %}
+# Set window root path. Default is `$session_root`.
+# Must be called before `new_window`.
+window_root "~/projects"
 
-    # Create new window. If no argument is given, window name will be based on
-    # layout file name.
-    new_window "cppdev"
+# Create new window. If no argument is given, window name will be based on
+# layout file name.
+new_window "cppdev"
 
-    # Split window into panes.
-    split_h 70
-    select_pane 1
-    split_v 30
+# Split window into panes.
+split_h 70
+select_pane 1
+split_v 30
 
-    # Set active pane.
-    select_pane 1
+# Set active pane.
+select_pane 1
+{% endhighlight %}
 
 
 and a very simple session file named `cppdev.session.sh` (also located at
 `${tmuxifier_dir}/layouts`) to launch the `cppdev` window created above:
 
-    # Create session with specified name if it does not already exist. If no
-    # argument is given, session name will be based on layout file name.
-    if initialize_session "Scppdev"; then
-        # Load a defined window layout.
-        load_window "cppdev"
-        # Select the default active window on session creation. 
-        select_window 1
-    fi
-    
-    # Finalize session creation and switch/attach to it.
-    finalize_and_go_to_session 
+{% highlight bash %}
+# Create session with specified name if it does not already exist. If no
+# argument is given, session name will be based on layout file name.
+if initialize_session "Scppdev"; then
+    # Load a defined window layout.
+    load_window "cppdev"
+    # Select the default active window on session creation. 
+    select_window 1
+fi
+
+# Finalize session creation and switch/attach to it.
+finalize_and_go_to_session 
+{% endhighlight %}
     
 
 To launch my C++ dev environment I just run:
 
-    $ tmuxifier load-session cppdev
+{% highlight bash %}
+$ tmuxifier load-session cppdev
+{% endhighlight %}
 
 Fixing `<CTRL+B>` conflict between tmux and vim
 ===============================================
 
 tmux by default uses `<CTRL+B>` as the prefix key, which conflicts with the default vim shortcut to scroll a page backwards. There's an easy fix. Remap `<CTRL+B>` to `<CTRL+A>` in tmux. So, add these lines to your `~/.tmux.conf` file:
 
-    unbind C-b
-    set -g prefix C-a
+{% highlight bash %}
+unbind C-b
+set -g prefix C-a
+{% endhighlight %}
 
 My `~/.tmux.conf` with extra tweaks
 ===================================
 
-    unbind C-b
-    set -g prefix C-a
-    
-    # Window numbers are always "gapless"
-    set-option -g renumber-windows on
-    
-    set -g default-terminal "screen-256color"
-    
-    # Smart pane switching with awareness of vim splits
-    # requires the vim-tmux-navigator plugin for vim (https://github.com/christoomey/vim-tmux-navigator)
-    bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys C-h) || tmux select-pane -L"
-    bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys C-j) || tmux select-pane -D"
-    bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys C-k) || tmux select-pane -U"
-    bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys C-l) || tmux select-pane -R"
-    bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys 'C-\\') || tmux select-pane -l"
-    
-    # Default <ctrl+l> was to clean screen,
-    # now it is <prefix><ctrl+l>
-    bind C-l send-keys 'C-l'
-    
-    # vi cursor moviment keys
-    set-window-option -g mode-keys vi
-    
-    # start window,pane index at 1
-    set -g base-index 1
-    set -g pane-base-index 1
-    
-    # stop tmux waiting for escape sequence
-    set -s escape-time 1
-    
-    # move x clipboard into tmux paste buffer
-    bind C-p run "xclip -o -selection clipboard | tmux load-buffer -; tmux paste-buffer"
-    
-    # copy selection vi-style
-    bind-key -t vi-copy 'v' begin-selection
-    bind-key -t vi-copy 'y' copy-selection
-    
-    # auto copy tmux buffer to clipboard
-    bind -t vi-copy y copy-pipe "xclip -i -selection clipboard"
+{% highlight bash %}
+unbind C-b
+set -g prefix C-a
+
+# Window numbers are always "gapless"
+set-option -g renumber-windows on
+
+set -g default-terminal "screen-256color"
+
+# Smart pane switching with awareness of vim splits
+# requires the vim-tmux-navigator plugin for vim (https://github.com/christoomey/vim-tmux-navigator)
+bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys C-h) || tmux select-pane -L"
+bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys C-j) || tmux select-pane -D"
+bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys C-k) || tmux select-pane -U"
+bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys C-l) || tmux select-pane -R"
+bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)g?(view|vim?)(diff)?$' && tmux send-keys 'C-\\') || tmux select-pane -l"
+
+# Default <ctrl+l> was to clean screen,
+# now it is <prefix><ctrl+l>
+bind C-l send-keys 'C-l'
+
+# vi cursor moviment keys
+set-window-option -g mode-keys vi
+
+# start window,pane index at 1
+set -g base-index 1
+set -g pane-base-index 1
+
+# stop tmux waiting for escape sequence
+set -s escape-time 1
+
+# move x clipboard into tmux paste buffer
+bind C-p run "xclip -o -selection clipboard | tmux load-buffer -; tmux paste-buffer"
+
+# copy selection vi-style
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+
+# auto copy tmux buffer to clipboard
+bind -t vi-copy y copy-pipe "xclip -i -selection clipboard"
+{% endhighlight %}
 
 Useful links
 ============

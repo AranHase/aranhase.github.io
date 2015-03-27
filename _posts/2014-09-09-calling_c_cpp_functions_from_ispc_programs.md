@@ -23,11 +23,12 @@ The process is quite simple, so it's better to show a minimal working code.
 This sample will make an ispc program access a `std::map` instance.  First,
 lets create a small program with this file structure:
 
-    ./main.cpp        # main program
-    ./foo.cpp         # the "foo()" function implementation
-    ./Makefile        # our build system
-    ./ispc/bar.ispc   # our ispc program (or "bar()" function)
-    
+{% highlight bash %}
+./main.cpp        # main program
+./foo.cpp         # the "foo()" function implementation
+./Makefile        # our build system
+./ispc/bar.ispc   # our ispc program (or "bar()" function)
+{% endhighlight %}
 
 We will start working with the `foo()` function below. The `extern "C"` let
 your compiler know that it should create a C function interface. Inside we have
@@ -115,6 +116,7 @@ requires the usage of some LLVM intermediate files. The `${LLC_OPTS}` also
 should be set properly for your target machine, otherwise you will get a
 compilation error.
 
+{% highlight bash %}
     // file: Makefile
     ISPC=ispc
     CXX=clang
@@ -147,7 +149,7 @@ compilation error.
         rm -rf *.bc
         rm -rf ispc/*.bc
         rm -rf ispc/bar_ispc.h
-    
+{% endhighlight %}
 
 Let me know if there is any problem with this code, thank you!
 
@@ -158,6 +160,8 @@ It turns out I don't have to do each compilation step manually (kind obvious
 now). Below is the way easier `Makefile`: (just like any normal multi-compiler
 way of doing things)
 
+{% highlight bash %}
+// Makefile
     ISPC=ispc
     CXX=clang
     EXE=ispc_cpp
@@ -180,6 +184,7 @@ way of doing things)
         rm -rf ispc/*.bc
         rm -rf ispc/*.o
         rm -rf ispc/bar_ispc.h
+{% endhighlight %}
 
  [1]: http://embree.github.io/
  [2]: https://ispc.github.io/
