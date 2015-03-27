@@ -136,7 +136,7 @@ font-weight: 100;
     <td rowspan="2">&nbsp;</td>
   </tr>
   <tr>
-    <td><paper-slider style="width:250px" editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_10"></paper-slider></td>
+    <td><paper-slider style="width:250px" disabled editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_10"></paper-slider></td>
     <td><paper-slider style="width:250px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_11"></paper-slider></td>
   </tr>
 </table>
@@ -246,12 +246,15 @@ document.getElementById('sl_mu_1').addEventListener('change', function(evt) {
 });
 document.getElementById('sl_sigma_00').addEventListener('change', function(evt) {
   sigma.subset(math.index(0,0), evt.target.value);
+  sigma.subset(math.index(1,1), evt.target.value);
   console.log("Sigma: " + sigma);
   computeValues();
   surfacePlot.draw(data, options, basicPlotOptions, glOptions);
 });
 document.getElementById('sl_sigma_01').addEventListener('change', function(evt) {
   sigma.subset(math.index(0,1), evt.target.value);
+  sigma.subset(math.index(1,0), evt.target.value);
+  document.getElementById('sl_sigma_10').value = evt.target.value;
   console.log("Sigma: " + sigma);
   computeValues();
   surfacePlot.draw(data, options, basicPlotOptions, glOptions);
