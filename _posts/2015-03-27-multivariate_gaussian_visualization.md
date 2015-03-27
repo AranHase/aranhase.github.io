@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Multivariate Gradient Visualization
-tags: math visualization machinelearning
+title: Multivariate Gaussian Distribution Visualization
+tags: math visualization machinelearning gaussian
 ---
 
-Multivariate Gradient or Multivariate Normal Distribution visualization.
+Multivariate Gaussian Distribution or Multivariate Normal Distribution visualization.
 
 # Formula
 $$
