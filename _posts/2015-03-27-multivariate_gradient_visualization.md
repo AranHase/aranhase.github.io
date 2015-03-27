@@ -154,8 +154,8 @@ var sigma = math.matrix([[1, 0], [0, 1]]);
 var mu = math.matrix([[0],[0]]);
 var tooltipStrings = new Array();
 var values = new Array();
-var numRows = 45;
-var numCols = 45;
+var numRows = 55;
+var numCols = 55;
 
 var canvas_width = document.getElementById('surfacePlotDiv').clientWidth;
 var canvas_height = document.getElementById('surfacePlotDiv').clientHeight;
@@ -202,9 +202,9 @@ function setUp()
   var colours = [colour1, colour2, colour3, colour4, colour5];
 
   // Axis labels.
-  var xAxisHeader = "X-axis";
-  var yAxisHeader = "Y-axis";
-  var zAxisHeader = "Z-axis";
+  var xAxisHeader = "x_1";
+  var yAxisHeader = "x_2";
+  var zAxisHeader = "f_x";
 
   var renderDataPoints = false;
   var background = '#ffffff';
@@ -274,4 +274,12 @@ document.getElementById('sl_sigma_11').addEventListener('change', function(evt) 
 
 </script>
 </div>
+
+## Notes
+
+ * $$\Sigma_{2,1}$$ is disabled because $$\Sigma$$ is a symmetric matrix
+ * $$\Sigma$$ should be an invertible matrix. If its not then an error will be thrown on the console of your browser and a blank plot will happen
+ * You can hold `<Shift>+<Left-Mouse-Button>` over the plot to zoom-in/out
+ * The range of values is enough to break the plot, but you can edit it further by editing the HTML in the `paper-slider` elements
+
 
