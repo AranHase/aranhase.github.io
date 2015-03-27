@@ -130,19 +130,19 @@ font-weight: 100;
   <tr>
     <td rowspan="2">$$\Sigma =$$</td>
     <td rowspan="2"><p id='brackets'>[</p></td>
-    <td style="width:250px;min-width:50px"><paper-slider style="width:250px;min-width:50px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_00"></paper-slider></td>
-    <td style="width:250px;min-width:50px"><paper-slider style="width:250px;min-width:50px" editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_01"></paper-slider></td>
+    <td><paper-slider style="width:250px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_00"></paper-slider></td>
+    <td><paper-slider style="width:250px" editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_01"></paper-slider></td>
     <td rowspan="2"><p id='brackets'>]</p></td>
     <td rowspan="2">&nbsp;</td>
   </tr>
   <tr>
-    <td style="width:250px;min-width:50px"><paper-slider style="width:250px;min-width:50px" disabled editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_10"></paper-slider></td>
-    <td style="width:250px;min-width:50px"><paper-slider style="width:250px;min-width:50px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_11"></paper-slider></td>
+    <td><paper-slider style="width:250px" disabled editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_10"></paper-slider></td>
+    <td><paper-slider style="width:250px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_11"></paper-slider></td>
   </tr>
 </table>
 </div>
 <div style="width:100%;">
-<div id='surfacePlotDiv' style="margin-bottom:10px;margin-left:auto; margin-right:auto; min-width:100px;width: 450px; height: 450px;"></div>
+<div id='surfacePlotDiv' style="margin-bottom:10px;margin-left:auto; margin-right:auto; width: 450px; height: 450px;"></div>
 </div>
 
 <script type='text/javascript'>
@@ -246,7 +246,6 @@ document.getElementById('sl_mu_1').addEventListener('change', function(evt) {
 });
 document.getElementById('sl_sigma_00').addEventListener('change', function(evt) {
   sigma.subset(math.index(0,0), evt.target.value);
-  sigma.subset(math.index(1,1), evt.target.value);
   console.log("Sigma: " + sigma);
   computeValues();
   surfacePlot.draw(data, options, basicPlotOptions, glOptions);
