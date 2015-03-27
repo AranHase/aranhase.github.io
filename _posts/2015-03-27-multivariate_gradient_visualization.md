@@ -32,8 +32,8 @@ $$
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/1.4.0/math.min.js"></script>
 <script id="shader-fs" type="x-shader/x-fragment">
     #ifdef GL_ES
-    precision highp float;
     #endif
+    precision mediump float;
     varying vec4 vColor;
     varying vec3 vLightWeighting;
     void main(void)
@@ -85,8 +85,8 @@ $$
   </script>
   <script id="texture-shader-fs" type="x-shader/x-fragment">
     #ifdef GL_ES
-    precision highp float;
     #endif
+    precision mediump float;
     varying vec2 vTextureCoord;
     uniform sampler2D uSampler;
     void main(void)
@@ -130,19 +130,19 @@ font-weight: 100;
   <tr>
     <td rowspan="2">$$\Sigma =$$</td>
     <td rowspan="2"><p id='brackets'>[</p></td>
-    <td><paper-slider style="width:250px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_00"></paper-slider></td>
-    <td><paper-slider style="width:250px" editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_01"></paper-slider></td>
+    <td style="width:250px;min-width:50px"><paper-slider style="width:250px;min-width:50px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_00"></paper-slider></td>
+    <td style="width:250px;min-width:50px"><paper-slider style="width:250px;min-width:50px" editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_01"></paper-slider></td>
     <td rowspan="2"><p id='brackets'>]</p></td>
     <td rowspan="2">&nbsp;</td>
   </tr>
   <tr>
-    <td><paper-slider style="width:250px" disabled editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_10"></paper-slider></td>
-    <td><paper-slider style="width:250px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_11"></paper-slider></td>
+    <td style="width:250px;min-width:50px"><paper-slider style="width:250px;min-width:50px" disabled editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_10"></paper-slider></td>
+    <td style="width:250px;min-width:50px"><paper-slider style="width:250px;min-width:50px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_11"></paper-slider></td>
   </tr>
 </table>
 </div>
 <div style="width:100%;">
-<div id='surfacePlotDiv' style="margin-bottom:10px;margin-left:auto; margin-right:auto; width: 450px; height: 450px;"></div>
+<div id='surfacePlotDiv' style="margin-bottom:10px;margin-left:auto; margin-right:auto; min-width:100px;width: 450px; height: 450px;"></div>
 </div>
 
 <script type='text/javascript'>
