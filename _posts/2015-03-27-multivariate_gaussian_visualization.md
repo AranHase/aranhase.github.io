@@ -277,8 +277,8 @@ document.getElementById('sl_sigma_11').addEventListener('change', function(evt) 
 
 ## Notes
 
- * $$\sigma_{2,1}$$ is disabled because $$\sigma$$ is a symmetric matrix
- * $$\sigma$$ should be an invertible matrix. If its not then an error will be thrown on the console of your browser and a blank plot will happen
+ * $$\sigma_{2,1}$$ is disabled because $$\Sigma$$ is a symmetric matrix
+ * $$\Sigma$$ should be an invertible matrix. If its not then an error will be thrown on the console of your browser and a blank plot will happen
  * You can hold `<Shift>+<Left-Mouse-Button>` over the plot to zoom-in/out
  * The range of values is enough to break the plot, but you can edit it further by editing the HTML in the `paper-slider` elements
 
