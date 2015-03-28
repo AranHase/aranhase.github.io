@@ -29,7 +29,7 @@ $$
 <script type="text/javascript" src='/assets/3dplot/ColourGradient.js'></script>
 <script type="text/javascript" src="/assets/3dplot/glMatrix-0.9.5.min.js"></script>
 <script type="text/javascript" src="/assets/3dplot/webgl-utils.js"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/1.4.0/math.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/1.4.0/math.min.js"></script>
 <script id="shader-fs" type="x-shader/x-fragment">
     #ifdef GL_ES
     #endif
