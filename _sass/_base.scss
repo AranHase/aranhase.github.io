@@ -80,7 +80,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+    font-weight: bold;
 }
 
 h1 {
@@ -89,8 +89,8 @@ h1 {
 
 h1::before {
   margin-top: 60px;
-  color: #6698FF;
-  font-weight: 900;
+  color: #443D45;
+  font-weight: bold;
   position: relative;
   left: -10px;
   content: '~';
@@ -98,8 +98,8 @@ h1::before {
 
 h2::before {
   margin-top: 60px;
-  color: #6698FF;
-  font-weight: 900;
+  color: #443D45;
+  font-weight: bold;
   position: relative;
   left: -8px;
   content: '≈';
@@ -107,8 +107,8 @@ h2::before {
 
 h3::before {
   margin-top: 60px;
-  color: #6698FF;
-  font-weight: 900;
+  color: #443D45;
+  font-weight: bold;
   content: '≋';
 }
 
