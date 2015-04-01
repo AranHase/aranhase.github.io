@@ -80,38 +80,10 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  color: #443D45;
+    font-weight: 300;
 }
 
-h1 {
-  margin-top: 60px;
-}
 
-h1::before {
-  margin-top: 60px;
-  color: #443D45;
-  font-weight: bold;
-  position: relative;
-  left: -10px;
-  content: '~';
-}
-
-h2::before {
-  margin-top: 60px;
-  color: #443D45;
-  font-weight: bold;
-  position: relative;
-  left: -8px;
-  content: '≈';
-}
-
-h3::before {
-  margin-top: 60px;
-  color: #443D45;
-  font-weight: bold;
-  content: '≋';
-}
 
 /**
  * Links
@@ -155,7 +127,7 @@ blockquote {
  */
 pre,
 code {
-    font-size: 12px;
+    font-size: 15px;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
     background-color: #eef;

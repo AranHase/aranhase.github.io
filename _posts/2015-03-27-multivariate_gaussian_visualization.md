@@ -24,7 +24,6 @@ $$
 # Playground
 
 <div>
-<link rel="import" href="/assets/bower_components/paper-slider/paper-slider.html">
 <script type="text/javascript" src='/assets/3dplot/SurfacePlot.js'></script>
 <script type="text/javascript" src='/assets/3dplot/ColourGradient.js'></script>
 <script type="text/javascript" src="/assets/3dplot/glMatrix-0.9.5.min.js"></script>
@@ -117,27 +116,56 @@ font-weight: 100;
 <div style="width: 100%">
 <table>
   <tr>
-    <td rowspan="2">$$\mu =$$</td>
-    <td rowspan="2"><p id='brackets'>[</p></td>
-    <td><paper-slider editable value="0" min="-3" max="3" step="0.1" id="sl_mu_0"></paper-slider></td>
-    <td rowspan="2"><p id='brackets'>]</p></td>
+    <td rowspan="4">$$\mu =$$</td>
+    <td rowspan="4"><p id='brackets'>[</p></td>
+    <td>&nbsp;</td>
+    <td rowspan="4"><p id='brackets'>]</p></td>
+    <td rowspan="4">$$=$$</td>
+    <td rowspan="4"><p id='brackets'>[</p></td>
+    <td>&nbsp;</td>
+    <td rowspan="4"><p id='brackets'>]</p></td>
   </tr>
   <tr>
-    <td><paper-slider editable value="0" min="-3" max="3" step="0.1" id="sl_mu_1"></paper-slider></td>
+    <td><input type="range" value="0" min="-3" max="3" step="0.1" id="sl_mu_0" onchange="on_change_mu_0()"></input></td>
+    <td><p id="tx_mu_0">0</p></td>
+  </tr>
+  <tr>
+    <td><input type="range" value="0" min="-3" max="3" step="0.1" id="sl_mu_1" onchange="on_change_mu_1()"></input></td>
+    <td><p id="tx_mu_1">0</p></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
   </tr>
 </table>
 <table>
   <tr>
-    <td rowspan="2">$$\Sigma =$$</td>
-    <td rowspan="2"><p id='brackets'>[</p></td>
-    <td><paper-slider style="width:250px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_00"></paper-slider></td>
-    <td><paper-slider style="width:250px" editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_01"></paper-slider></td>
-    <td rowspan="2"><p id='brackets'>]</p></td>
-    <td rowspan="2">&nbsp;</td>
+    <td rowspan="4">$$\Sigma =$$</td>
+    <td rowspan="4"><p id='brackets'>[</p></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td rowspan="4"><p id='brackets'>]</p></td>
+    <td rowspan="4">$$=$$</td>
+    <td rowspan="4"><p id='brackets'>[</p></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td rowspan="4"><p id='brackets'>]</p></td>
   </tr>
   <tr>
-    <td><paper-slider style="width:250px" disabled editable value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_10"></paper-slider></td>
-    <td><paper-slider style="width:250px" editable value="1" min="0" max="2.0" step="0.1" id="sl_sigma_11"></paper-slider></td>
+    <td><input type="range" value="1" min="0" max="2.0" step="0.1" id="sl_sigma_00" onchange="on_change_sigma_00()"></input></td>
+    <td><input type="range" value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_01" onchange="on_change_sigma_01()"></input></td>
+    <td><p id="tx_sigma_00">1</p></td>
+    <td><p id="tx_sigma_01">0</p></td>
+  </tr>
+  <tr>
+    <td><input type="range" disabled="true" value="0" min="-2.0" max="2.0" step="0.01" id="sl_sigma_10" onchange="on_change_sigma_10()"></input></td>
+    <td><input type="range" value="1" min="0" max="2.0" step="0.1" id="sl_sigma_11" onchange="on_change_sigma_11()"></input></td>
+    <td><p id="tx_sigma_10">0</p></td>
+    <td><p id="tx_sigma_11">1</p></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
   </tr>
 </table>
 </div>
@@ -232,45 +260,58 @@ function setUp()
 
 setUp();
 
-document.getElementById('sl_mu_0').addEventListener('change', function(evt) {
-  mu.subset(math.index(0,0), evt.target.value);
+function on_change_mu_0() {
+  new_mu = parseFloat(document.getElementById("sl_mu_0").value);
+  document.getElementById("tx_mu_0").innerHTML = new_mu;
+  mu.subset(math.index(0,0), new_mu);
   console.log("Mu: " + mu);
   computeValues();
   surfacePlot.draw(data, options, basicPlotOptions, glOptions);
-});
-document.getElementById('sl_mu_1').addEventListener('change', function(evt) {
-  mu.subset(math.index(1,0), evt.target.value);
+}
+function on_change_mu_1() {
+  new_mu = parseFloat(document.getElementById("sl_mu_1").value);
+  document.getElementById("tx_mu_1").innerHTML = new_mu;
+  mu.subset(math.index(1,0), new_mu);
   console.log("Mu: " + mu);
   computeValues();
   surfacePlot.draw(data, options, basicPlotOptions, glOptions);
-});
-document.getElementById('sl_sigma_00').addEventListener('change', function(evt) {
-  sigma.subset(math.index(0,0), evt.target.value);
+}
+function on_change_sigma_00() {
+  new_sigma = parseFloat(document.getElementById("sl_sigma_00").value);
+  document.getElementById("tx_sigma_00").innerHTML = new_sigma;
+  sigma.subset(math.index(0,0), new_sigma);
   console.log("Sigma: " + sigma);
   computeValues();
   surfacePlot.draw(data, options, basicPlotOptions, glOptions);
-});
-document.getElementById('sl_sigma_01').addEventListener('change', function(evt) {
-  sigma.subset(math.index(0,1), evt.target.value);
-  sigma.subset(math.index(1,0), evt.target.value);
-  document.getElementById('sl_sigma_10').value = evt.target.value;
+}
+function on_change_sigma_01() {
+  new_sigma = parseFloat(document.getElementById("sl_sigma_01").value);
+  document.getElementById("tx_sigma_01").innerHTML = new_sigma;
+  sigma.subset(math.index(0,1), new_sigma);
+  console.log("Sigma: " + sigma);
+  /*
+  computeValues();
+  surfacePlot.draw(data, options, basicPlotOptions, glOptions);
+  */
+  document.getElementById("sl_sigma_10").value = document.getElementById("sl_sigma_01").value;
+  on_change_sigma_10();
+}
+function on_change_sigma_10() {
+  new_sigma = parseFloat(document.getElementById("sl_sigma_10").value);
+  document.getElementById("tx_sigma_10").innerHTML = new_sigma;
+  sigma.subset(math.index(1,0), new_sigma);
   console.log("Sigma: " + sigma);
   computeValues();
   surfacePlot.draw(data, options, basicPlotOptions, glOptions);
-});
-document.getElementById('sl_sigma_10').addEventListener('change', function(evt) {
-  sigma.subset(math.index(1,0), evt.target.value);
+}
+function on_change_sigma_11() {
+  new_sigma = parseFloat(document.getElementById("sl_sigma_11").value);
+  document.getElementById("tx_sigma_11").innerHTML = new_sigma;
+  sigma.subset(math.index(1,1), new_sigma);
   console.log("Sigma: " + sigma);
   computeValues();
   surfacePlot.draw(data, options, basicPlotOptions, glOptions);
-});
-document.getElementById('sl_sigma_11').addEventListener('change', function(evt) {
-  sigma.subset(math.index(1,1), evt.target.value);
-  console.log("Sigma: " + sigma);
-  computeValues();
-  surfacePlot.draw(data, options, basicPlotOptions, glOptions);
-});
-
+}
 
 </script>
 </div>
