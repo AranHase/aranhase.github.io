@@ -1,6 +1,6 @@
 # Site settings
 title: AranHase's Archive
-email: hasegawa.aran@gmail.com
+email:
 description: > # this means to ignore newlines until "baseurl:"
   Allan Yoshio Hasegawa blog. A place to talk about my fields of interests: C++, Haskell, Computer Graphics,
   Raytracing, Pathtracing, Machine Learning, Artificial Intelligence,
