@@ -238,7 +238,7 @@ function setUp()
   var background = '#ffffff';
   var axisForeColour = '#000000';
   var hideFloorPolygons = true;
-  var chartOrigin = {x: 0, y: 0};
+  var chartOrigin = {x: 200, y: 200};
 
   // Options for the basic canvas pliot.
   basicPlotOptions = {fillPolygons: fillPly, tooltips: tooltipStrings, renderPoints: renderDataPoints }
