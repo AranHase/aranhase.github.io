@@ -66,9 +66,13 @@ Here is my modifications to the `.spacemacs` file so far:
   ;; Show line numbers by default
   (global-linum-mode)
 )
-
-
 {% endhighlight %}
+
+I keep both Visual Studio and Spacemacs open when coding. Spacemacs is useful
+when editing files, and when I change a file, it is automatically updated in Visual
+Studio. If I ever need to use Intellisense or something that Visual Studio has,
+then I can just switch windows and use it. Also, compilations and debug are handled
+inside Visual Studio too.
 
 
 Print To Screen
