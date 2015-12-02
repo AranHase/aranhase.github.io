@@ -30,6 +30,17 @@ The `IncludeCategories` entry is the important part. It tells the order of the i
 The `<filename>.generated.h` file will always be placed last because it will have a
 higher priority number.
 
+Some macros used by UE4 cannot have break lines. So, disable clang-format around these
+macros enclosing them like this:
+
+
+{% highlight cpp %}
+// clang-format off
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTowerDataStatsChanged, UBaseTowerData *, TowerData);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTowerDataUpgraded, UBaseTowerData *, TowerData);
+// clang-format on
+{% endhighlight %}
+
 
 Visual Studio is bad?
 --------------------
