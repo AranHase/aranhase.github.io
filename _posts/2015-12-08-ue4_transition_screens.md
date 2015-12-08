@@ -101,6 +101,8 @@ Or using a texture: (download the texture [`.png`][11] or the [`Inkscape file`][
 
  * Others UI elements may show on top of your transition effect
  * It is possible to do the same thing using Post Process Blendables, but not sure what advantages there are for it
+ * You can have fun putting all of your transition effects materials on an array, and using a random one each time the UI Widget is created
+ * This was done with UE4 version 4.10
 
 
  [1]: /assets/images/ue4_transitions/transition_sphere.gif
